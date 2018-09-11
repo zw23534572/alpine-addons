@@ -1,10 +1,4 @@
 apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: heapster
-  namespace: kube-system
---- system:serviceaccount:kube-system:default ---
-apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
