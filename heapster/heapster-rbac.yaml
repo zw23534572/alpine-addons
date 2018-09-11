@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: heapster
+  name: default
   namespace: kube-system
 
 ---
@@ -12,7 +12,7 @@ metadata:
   name: heapster
 subjects:
   - kind: ServiceAccount
-    name: heapster
+    name: default
     namespace: kube-system
 roleRef:
   kind: ClusterRole
