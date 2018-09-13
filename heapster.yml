@@ -20,7 +20,7 @@ spec:
       serviceAccountName: heapster
       containers:
       - name: heapster
-        image: daocloud.io/liukuan73/heapster-amd64:v1.5.2
+        image: reg.qiniu.com/k8s/heapster-amd64:v1.5.3
         imagePullPolicy: IfNotPresent
         command:
         - /heapster
