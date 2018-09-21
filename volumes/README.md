@@ -1,5 +1,8 @@
 ## 简介
-K8S的存储系统从基础到高级又大致分为三个层次：普通Volume，Persistent Volume 和动态存储供应(dynamic provisioning)。
+K8S的存储系统从基础到高级又大致分为三个层次：
+- 普通Volume
+- Persistent Volume
+- 动态存储供应(dynamic provisioning)。
 
 ### 普通Volume
   - emptyDir,是一个匿名的空目录，由Kubernetes在创建Pod时创建，删除Pod时删除.
@@ -76,4 +79,5 @@ K8S的存储系统从基础到高级又大致分为三个层次：普通Volume�
   - **Failed** – 自动回收失败
 
 参考资料
+- https://kubernetes.io/docs/concepts/storage/volumes/ 官网介绍
 - https://blog.csdn.net/styshoo/article/details/69496952 Kubernetes volumes简介

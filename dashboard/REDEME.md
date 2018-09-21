@@ -1,12 +1,23 @@
+## 简介
+因为我们 kubernetes 版本为 v1.6.2 所以我们选择对应的 Dashboard 版本为 v1.6.+ 即可，版本也不要太新，否则可能会出现兼容性问题。不过可以使用 v1.6.0+ 的版本，它开始支持中文了，更直观一些哈。
+```shell
+kubectl create -f kubernetes-dashboard.yaml
+```
+
 ## 创建nginx-rc.yaml文件
 ## 查看token
 ```shell
-kubectl get secret -n kube-system | grep dashboard  
-kubectl describe secret kubernetes-dashboard-token-zrsmp -n kube-system 
-
 kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token
+kubectl get po -n kube-system
+kubectl logs pods/heapster-7c9cff9f8-rxtkr -n kube-system
+kubectl logs pods/kubernetes-dashboard-68ff5fcd99-w9wgk  -n kube-system
+kubectl logs pods/monitoring-grafana-77db8c878f-lc82f   -n kube-system
+kubectl logs pods/monitoring-influxdb-7f7f87658-5kngn  -n kube-system
 
 ```
+
+
+
 
 访问方式
 ```shell
@@ -29,8 +40,10 @@ https://120.79.189.147:6443/api/v1/namespaces/kube-system/services/https:kuberne
 https://193.112.125.239:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 
  --test-type --ignore-certificate-errors
-# 参考文档
-- https://www.cnblogs.com/RainingNight/p/deploying-k8s-dashboard-ui.html
-- http://blog.51cto.com/ylw6006/2113542
 
-- http://www.cnblogs.com/breg/p/5923604.html  Kubernetes集群安全配置案例
+# 参考文档
+- https://www.cnblogs.com/RainingNight/p/deploying-k8s-dashboard-ui.html  kubernetes-dashboard(1.8.3)部署与踩坑
+- http://blog.51cto.com/ylw6006/2113542 K8S使用dashboard管理集群
+- http://www.cnblogs.com/scode2/p/8810052.html 详解k8s一个完整的监控方案(Heapster+Grafana+InfluxDB) - kubernetes
+- http://www.mamicode.com/info-detail-2247805.html  详解k8s一个完整的监控方案(Heapster+Grafana+InfluxDB) - kubernetes
+- https://blog.csdn.net/aixiaoyang168/article/details/78411511 国内使用 kubeadm 在 Centos 7 搭建 Kubernetes 集群
