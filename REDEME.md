@@ -29,3 +29,15 @@ kubectl get pod,deployment,svc -n kube-system
 kubectl logs -f pod/kube-apiserver-node -n kube-system
 kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token
 ```
+
+测试访问方式
+```shell
+## 开启url镜像
+kubectl run curl --image=radial/busyboxplus:curl -i --tty
+nslookup kubernetes
+nslookup example-service
+curl example-service
+
+kubectl get po
+kubectl attach curl-87b54756-gxnzw -c curl -i -t
+```

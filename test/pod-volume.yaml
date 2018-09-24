@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-base-volume
+spec:
+  containers:
+  - name: alpine-base
+    image: registry.cn-shenzhen.aliyuncs.com/sjroom/apline-base
+    volumeMounts:
+    - name: redis-storage
+      mountPath: /data/redis
+  volumes:
+  - name: redis-storage
+    emptyDir: {}

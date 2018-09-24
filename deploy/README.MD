@@ -7,3 +7,6 @@ master节点请查看master文件夹
 node节点请查看node文件夹
 
 未完代续...
+
+参考博客
+- http://www.maogx.win/posts/32/ centos7使用kubeadm安装k8s-1.11版本

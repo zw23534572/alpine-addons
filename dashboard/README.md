@@ -8,38 +8,42 @@ kubectl create -f kubernetes-dashboard.yaml
 ## 查看token
 ```shell
 kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token
-kubectl get po -n kube-system
-kubectl logs pods/heapster-7c9cff9f8-rxtkr -n kube-system
-kubectl logs pods/kubernetes-dashboard-68ff5fcd99-w9wgk  -n kube-system
-kubectl logs pods/monitoring-grafana-77db8c878f-lc82f   -n kube-system
-kubectl logs pods/monitoring-influxdb-7f7f87658-5kngn  -n kube-system
+kubectl get po,svc -n kube-system -o wide
+kubectl logs pod/heapster-7c9cff9f8-lshmn -n kube-system
+kubectl logs pod/kubernetes-dashboard-78dc5f9d6b-r84z5  -n kube-system
+kubectl logs pod/monitoring-grafana-77db8c878f-b5t4h   -n kube-system
+kubectl logs pod/monitoring-influxdb-7f7f87658-kc2x9  -n kube-system
 
 ```
 
-
-
+错误1：这个代表heapster没有创建.
+```shell
+[root@master dashboard]# kubectl logs pod/kubernetes-dashboard-57c65ffd69-nx6r6 -n kube-system
+2018/09/21 03:00:16 Metric client health check failed: the server could not find the requested resource (get services heapster). Retrying in 30 seconds.
+```
+错误2：
+```shell
+2018/09/21 03:01:46 Metric client health check failed: an error on the server ("[-]healthz failed: could not get the latest data batch\nhealthz check failed") has prevented the request from succeeding (get services heapster). Retrying in 30 seconds.
+```
 
 访问方式
 ```shell
+方式1：
 kubectl proxy --address='0.0.0.0'  --accept-hosts='^*$'
-
 http://120.79.189.147:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 http://193.112.125.239:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 
-eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLWo2ZDViIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIzM2I0MGE5OC1iNjZjLTExZTgtYTczNS0wMDE2M2UwZTc5NjUiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06YWRtaW4tdXNlciJ9.Zy62UcAD9eObeOr2hNcifJiFX1wWHnjabWhIGdOtuCwjS1W-6Er6cmscZiYz3zmSg3k6bwp0jwu855djGRDNU_PZoFcoJSysUSf4-0ImOYAfKH-skQ_ahrvimab7zqe3bnkf7eeZvSH-xv3PHIUbzT03dcMnOuq3LMamExrZGix8PatjdRlbSvAzmwQThlW8ALQmJj4KYaIWXasJ91PqFEI2-_9MKeCvrgRqOdmlPawjxoc43NxYsk33Rbi7nkMUZzRUQ1iw6Apn3-jZXInQlxS1NOLpdGkrmK_R08kPZ4zC5Z4BWCvXNFyCJp5NFFtE9muD0pRy-_MhwtB1YUmeoA
-
+方式2：
+--test-type --ignore-certificate-errors
 ```
-
-https://www.cnblogs.com/RainingNight/p/deploying-k8s-dashboard-ui.html
 
 ## 安装插件
 ### 整合heapster和influxdb
 
-
 https://120.79.189.147:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 https://193.112.125.239:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 
- --test-type --ignore-certificate-errors
+
 
 # 参考文档
 - https://www.cnblogs.com/RainingNight/p/deploying-k8s-dashboard-ui.html  kubernetes-dashboard(1.8.3)部署与踩坑
