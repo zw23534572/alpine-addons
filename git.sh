@@ -4,6 +4,6 @@ if [ ! -n "$1" ]; then
     exit 1
 else
     git add .
-    git commit -m '$1'
+    git commit -m "$1"
     git push
 fi
