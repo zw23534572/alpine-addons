@@ -22,4 +22,9 @@ kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/mas
 kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-limit.yaml
 # 测试pod-heath-check
 kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-heath-check.yaml
+# 测试pod-init-container
+kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-init-container.yaml
+# 指定 nodes机器进行启动
+kubectl label nodes <your-node-name> disktype=ssd
+kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-special-node.yaml
 ```
