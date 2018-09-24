@@ -4,7 +4,7 @@ metadata:
   name: apline-base-env
 spec:
   containers:
-    - name: apline-base
+    - name: apline-base-env
       image: registry.cn-shenzhen.aliyuncs.com/sjroom/apline-base
       command: [ "sh", "-c"]
       args:
