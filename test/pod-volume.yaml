@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: alpine-base
-    image: registry.cn-shenzhen.aliyuncs.com/sjroom/apline-base
+    image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-base
     volumeMounts:
     - name: redis-storage
       mountPath: /data/redis

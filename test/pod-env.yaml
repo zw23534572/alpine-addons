@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: apline-base-env
+  name: alpine-base-env
 spec:
   containers:
-    - name: apline-base-env
-      image: registry.cn-shenzhen.aliyuncs.com/sjroom/apline-base
+    - name: alpine-base-env
+      image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-base
       command: [ "sh", "-c"]
       args:
       - env
@@ -40,21 +40,21 @@ spec:
         - name: MY_CPU_REQUEST
           valueFrom:
             resourceFieldRef:
-              containerName: apline-base-env
+              containerName: alpine-base-env
               resource: requests.cpu
         - name: MY_CPU_LIMIT
           valueFrom:
             resourceFieldRef:
-              containerName: apline-base-env
+              containerName: alpine-base-env
               resource: limits.cpu
         - name: MY_MEM_REQUEST
           valueFrom:
             resourceFieldRef:
-              containerName: apline-base-env
+              containerName: alpine-base-env
               resource: requests.memory
         - name: MY_MEM_LIMIT
           valueFrom:
             resourceFieldRef:
-              containerName: apline-base-env
+              containerName: alpine-base-env
               resource: limits.memory
   restartPolicy: Never

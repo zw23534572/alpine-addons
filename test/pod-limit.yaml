@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: apline-base-limit
+  name: alpine-base-limit
 spec:
   containers:
-    - image: registry.cn-shenzhen.aliyuncs.com/sjroom/apline-base
-      name: apline-base-limit
+    - image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-base
+      name: alpine-base-limit
       resources:
         requests: # requests（请求，调度器保证调度到资源充足的Node上）
           cpu: "300m"
