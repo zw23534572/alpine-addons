@@ -20,4 +20,6 @@ kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/mas
 kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-env.yaml
 # 测试pod-limit
 kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-limit.yaml
+# 测试pod-heath-check
+kubectl create -f https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-heath-check.yaml
 ```
