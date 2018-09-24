@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apline-base-status
+spec:
+  containers:
+    - image: registry.cn-shenzhen.aliyuncs.com/sjroom/apline-base
+      name: apline-base-status
+      livenessProbe: # 探测应用是否处于健康状态，如果不健康则删除重建改容器
+        httpGet:
+        path: /
+        port: 80
+        initialDelaySeconds: 15
+        timeoutSeconds: 1
+      readinessProbe: # 探测应用是否启动完成并且处于正常服务状态，如果不正常则更新容器的状态
+        httpGet:
+        path: /ping
+        port: 80
+        initialDelaySeconds: 5
+        timeoutSeconds: 1

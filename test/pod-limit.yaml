@@ -7,9 +7,10 @@ spec:
     - image: registry.cn-shenzhen.aliyuncs.com/sjroom/apline-base
       name: apline-base-limit
       resources:
-        requests:
+        requests: # requests（请求，调度器保证调度到资源充足的Node上）
           cpu: "300m"
           memory: "56Mi"
         limits:
           cpu: "500m"
           memory: "128Mi"
+# CPU的单位是milicpu，500mcpu=0.5cpu；而内存的单位则包括E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki等。
