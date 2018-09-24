@@ -30,7 +30,17 @@ kubectl logs -f pod/kube-apiserver-node -n kube-system
 kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token
 ```
 
-测试访问方式
+## ImagePullPolicy
+支持三种ImagePullPolicy
+- Always：不管镜像是否存在都会进行一次拉取。
+- Never：不管镜像是否存在都不会进行拉取
+- IfNotPresent：只有镜像不存在时，才会进行镜像拉取。
+注意：
+- 默认为IfNotPresent，但:latest标签的镜像默认为Always。
+- 拉取镜像时docker会进行校验，如果镜像中的MD5码没有变，则不会拉取镜像数据。
+- 生产环境中应该尽量避免使用:latest标签，而开发环境中可以借助:latest标签自动拉取最新的镜像。
+
+## 测试访问方式
 ```shell
 ## 开启url镜像
 kubectl run curl --image=radial/busyboxplus:curl -i --tty
