@@ -40,21 +40,21 @@ spec:
         - name: MY_CPU_REQUEST
           valueFrom:
             resourceFieldRef:
-              containerName: test-container
+              containerName: apline-base-env
               resource: requests.cpu
         - name: MY_CPU_LIMIT
           valueFrom:
             resourceFieldRef:
-              containerName: test-container
+              containerName: apline-base-env
               resource: limits.cpu
         - name: MY_MEM_REQUEST
           valueFrom:
             resourceFieldRef:
-              containerName: test-container
+              containerName: apline-base-env
               resource: requests.memory
         - name: MY_MEM_LIMIT
           valueFrom:
             resourceFieldRef:
-              containerName: test-container
+              containerName: apline-base-env
               resource: limits.memory
   restartPolicy: Never
