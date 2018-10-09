@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: alpine-java8-maven3
+spec:
+  template:
+    metadata:
+      labels:
+        app: alpine-java8-maven3
+    spec:
+      containers:
+      - name: alpine-java8-maven3
+        image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-java8-maven3

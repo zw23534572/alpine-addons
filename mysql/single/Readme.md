@@ -117,3 +117,14 @@ service/mysql created
 
 本章直介绍单个节点的mysql的部署。
 
+## 错误
+### mysql遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题
+问题出现的原因： 
+MySQL 5.7.5及以上功能依赖检测功能。如果启用了ONLY_FULL_GROUP_BY SQL模式（默认情况下），MySQL将拒绝选择列表，HAVING条件或ORDER BY列表的查询引用在GROUP BY子句中既未命名的非集合列，也不在功能上依赖于它们。（5.7.5之前，MySQL没有检测到功能依赖关系，默认情况下不启用ONLY_FULL_GROUP_BY。有关5.7.5之前的行为的说明，请参见“MySQL 5.6参考手册”。）
+
+解决方法
+```sql
+select @@global.sql_mode
+set @@global.sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+```
+> 关闭后，重新启动.

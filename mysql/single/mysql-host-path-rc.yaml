@@ -15,9 +15,9 @@ spec:
       - name: mysqlpod
         image: mysql:5.7            #容器对应的Docker image
         ports:
-        - containerPort: 3306
+        - containerPort: 3306       #容器应用监听的端口号
         env:                        #注入容器内的环境变量
-        - name: MYSQL_ROOT_PASSWORD #容器应用监听的端口号
+        - name: MYSQL_ROOT_PASSWORD 
           value: "123456"
         volumeMounts:
         - name: db
