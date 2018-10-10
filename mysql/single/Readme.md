@@ -115,7 +115,8 @@ service/mysql created
 - 1.每次重新发布mysql都指定在对应的node机器。
 - 2.用网络磁盘来解决。
 
-本章直介绍单个节点的mysql的部署。
+本章只介绍单个节点的mysql的部署。
+mysql的存储问题，在抽时间介绍。
 
 ## 错误
 ### mysql遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题
