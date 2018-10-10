@@ -1,4 +1,4 @@
---- ClusterRole ---
+---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -23,7 +23,7 @@ rules:
       - nodes/status
     verbs:
       - patch
---- ClusterRoleBinding ---
+---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -36,13 +36,13 @@ subjects:
 - kind: ServiceAccount
   name: flannel
   namespace: kube-system
----  ServiceAccount ---
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: flannel
   namespace: kube-system
---- ConfigMap ---
+---
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -78,7 +78,7 @@ data:
         "Type": "vxlan"
       }
     }
---- DaemonSet ---
+---
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
@@ -124,7 +124,6 @@ spec:
         args:
         - --ip-masq
         - --kube-subnet-mgr
-        - --iface=eth0
         resources:
           requests:
             cpu: "100m"
