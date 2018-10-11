@@ -8,4 +8,5 @@ spec:
     image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-base
   nodeSelector:
     disktype: node1
-#kubectl label nodes <your-node-name> disktype=ssd
+# kubectl label nodes <your-node-name> disktype=node1
+# https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/pod-special-node.yaml
