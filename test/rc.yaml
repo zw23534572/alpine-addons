@@ -21,8 +21,9 @@ spec:
   type: NodePort
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 80
       protocol: TCP
       nodePort: 30101
   selector:
         name: spring-boot-web  
+# https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/rc.yaml
