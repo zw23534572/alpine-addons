@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: StatefulSet
+metadata:
+  name: alpine-java8-maven3
+spec:
+  template:
+    metadata:
+      labels:
+        app: alpine-java8-maven3
+    spec:
+      containers:
+      - name: alpine-java8-maven3
+        image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-java8-maven3
+# https://raw.githubusercontent.com/zw23534572/alpine-addons/master/test/deploy.yaml
