@@ -6,16 +6,6 @@ spec:
   containers:
     - name: alpine-base-env
       image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-base
-      command: [ "sh", "-c"]
-      args:
-      - env
-      resources:
-        requests:
-          memory: "32Mi"
-          cpu: "125m"
-        limits:
-          memory: "64Mi"
-          cpu: "250m"
       env:
         - name: MY_NODE_NAME
           valueFrom:
@@ -58,3 +48,4 @@ spec:
               containerName: alpine-base-env
               resource: limits.memory
   restartPolicy: Never
+  # printenv
