@@ -7,8 +7,8 @@ spec:
   - image: nginx:1.7.9
     name: test-container
     volumeMounts:
-    - mountPath: /test-pd
-      name: test-volume
+    - name: test-volume
+      mountPath: /test-pd
   volumes:
   - name: test-volume
     hostPath:
