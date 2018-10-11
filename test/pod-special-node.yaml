@@ -1,12 +1,10 @@
+apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
-  labels:
-    env: test
+  name: alpine-base
 spec:
   containers:
-  - name: nginx
-    image: nginx
-    imagePullPolicy: IfNotPresent
+  - name: alpine-base
+    image: registry.cn-shenzhen.aliyuncs.com/sjroom/alpine-base
   nodeSelector:
-    disktype: ssd
+    disktype: node1
