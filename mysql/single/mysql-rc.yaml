@@ -19,3 +19,4 @@ spec:
         env:                        #注入容器内的环境变量
         - name: MYSQL_ROOT_PASSWORD 
           value: "123456"
+# https://raw.githubusercontent.com/zw23534572/alpine-addons/master/mysql/single/mysql-rc.yaml
