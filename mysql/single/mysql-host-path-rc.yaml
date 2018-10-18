@@ -27,4 +27,4 @@ spec:
           hostPath:
             # directory location on host
             path: /var/lib/mysql
-# https://raw.githubusercontent.com/zw23534572/alpine-addons/master/mysql/single/mysql-deploy.yaml
+# https://raw.githubusercontent.com/zw23534572/alpine-addons/master/mysql/single/mysql-host-path-rc.yaml
