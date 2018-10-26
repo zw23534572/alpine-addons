@@ -37,7 +37,7 @@ spec:
   type: NodePort
   ports:
   - port: 3306
-    nodePort: 30000
+    nodePort: 3306
   selector: #Service对应的Pod拥有这里定义的标签
     app: mysql
 # https://raw.githubusercontent.com/zw23534572/alpine-addons/master/mysql/single/mysql-deploy.yaml
