@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# [服务器地址]
-image_server_remote="registry.cn-hangzhou.aliyuncs.com"
 # [分支名]
 branch_name=${CI_COMMIT_REF_NAME//\//\_}
 # [maven 编译是否跳过测试]
