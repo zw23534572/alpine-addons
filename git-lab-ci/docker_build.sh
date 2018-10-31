@@ -27,13 +27,13 @@ docker_build() {
 	# sudo docker login -u $docker_login -p $docker_pwd $image_server_remote
 	# is_interrupt
 
-	echo "sudo docker build -t $image_server_remote/$project_name:$branch_name ."
-	#docker build --no-cache=true -t $image_server_remote/$project_name:$branch_name .
-	sudo docker build -t $image_server_remote/$project_name:$branch_name .
+	echo "sudo docker build -t $image_server_remote/$image_env/$project_name:$branch_name ."
+	#docker build --no-cache=true -t $image_server_remote/$image_env/$project_name:$branch_name .
+	sudo docker build -t $image_server_remote/$image_env/$project_name:$branch_name .
 	is_interrupt
 
-	echo "sudo docker push remote $image_server_remote/$project_name:$branch_name"
-	sudo docker push $image_server_remote/$project_name:$branch_name
+	echo "sudo docker push remote $image_server_remote/$image_env/$project_name:$branch_name"
+	sudo docker push $image_server_remote/$image_env/$project_name:$branch_name
 	is_interrupt
 }
 
@@ -84,6 +84,7 @@ check_branch_tag() {
 check_branch_develop() {
 	if [[ $branch_name == *develop* ]]; then
 		mvn_build
+		docker_build sjroom
 		exit 0
 	fi
 }
@@ -92,7 +93,7 @@ check_branch_develop() {
 check_branch_master() {
 	if [[ $branch_name == *master* ]]; then
 		mvn_build
-		docker_build
+		docker_build sjroom
 		exit 0
 	fi
 }
