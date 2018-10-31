@@ -27,13 +27,13 @@ docker_build() {
 	# docker login -u $docker_login -p $docker_pwd $image_server_remote
 	# is_interrupt
 
-	echo "docker build -t $image_server_remote/$image_env/$project_name:$branch_name ."
-	#docker build --no-cache=true -t $image_server_remote/$image_env/$project_name:$branch_name .
-	docker build -t $image_server_remote/$image_env/$project_name:$branch_name .
+	echo "docker build -t $image_server_remote/$project_name:$branch_name ."
+	#docker build --no-cache=true -t $image_server_remote/$project_name:$branch_name .
+	docker build -t $image_server_remote/$project_name:$branch_name .
 	is_interrupt
 
-	echo "docker push remote $image_server_remote/$image_env/$project_name:$branch_name"
-	docker push $image_server_remote/$image_env/$project_name:$branch_name
+	echo "docker push remote $image_server_remote/$project_name:$branch_name"
+	docker push $image_server_remote/$project_name:$branch_name
 	is_interrupt
 }
 
