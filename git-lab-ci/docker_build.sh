@@ -23,9 +23,9 @@ docker_build() {
 		cd $dockerBuildDir
 	fi
 
-	# echo "docker login start"
-	# docker login -u $docker_login -p $docker_pwd $image_server_remote
-	# is_interrupt
+	echo "docker login -u $docker_login -p $docker_pwd $image_server_remote"
+	docker login -u $docker_login -p $docker_pwd $image_server_remote
+	is_interrupt
 
 	echo "docker build -t $image_server_remote/$project_name:$branch_name ."
 	#docker build --no-cache=true -t $image_server_remote/$project_name:$branch_name .
