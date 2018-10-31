@@ -92,6 +92,7 @@ check_branch_develop() {
 check_branch_master() {
 	if [[ $branch_name == *master* ]]; then
 		mvn_build
+		docker_build
 		exit 0
 	fi
 }
