@@ -41,3 +41,4 @@ spec:
   selector: #Service对应的Pod拥有这里定义的标签
     app: mysql
 # https://raw.githubusercontent.com/zw23534572/alpine-addons/master/mysql/single/mysql-deploy.yaml
+# docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v ~/mysql/data:/var/lib/mysql -v ~/mysql/conf:/etc/mysql/conf.d -d mysql:5.6
